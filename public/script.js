@@ -2,7 +2,9 @@
 const map = L.map("map").setView([45.9432, 24.9668], 7);
 
 // Add OpenStreetMap tiles
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
+let currentLayer = L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+).addTo(map);
 
 // Marker clustering
 const markers = L.markerClusterGroup();
@@ -62,3 +64,26 @@ map.on("click", function (e) {
     lngInput.value = lng.toFixed(6); // Populate longitude field
     modal.style.display = "block"; // Open the modal automatically
 });
+
+// Handle the theme dropdown change
+const themeSelector = document.getElementById("themeSelector");
+
+themeSelector.addEventListener("change", (e) => {
+    const selectedTheme = e.target.value;
+
+    // Remove the existing layer
+    map.removeLayer(currentLayer);
+
+    // Add the selected layer
+    currentLayer = L.tileLayer(selectedTheme).addTo(map);
+
+    // Save the selected theme in localStorage
+    localStorage.setItem("mapTheme", selectedTheme);
+});
+
+// Check if there's a saved theme in localStorage and apply it
+const savedTheme = localStorage.getItem("mapTheme");
+if (savedTheme) {
+    themeSelector.value = savedTheme; // Set the dropdown to the saved theme
+    currentLayer = L.tileLayer(savedTheme).addTo(map);
+}
