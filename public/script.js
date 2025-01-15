@@ -22,17 +22,22 @@ fetch("/data.json")
 
 // Modal functionality
 const modal = document.getElementById("modal");
-const addLocationBtn = document.getElementById("addLocationBtn");
 const closeModal = document.getElementById("closeModal");
 const form = document.getElementById("addLocationForm");
 
-addLocationBtn.onclick = () => (modal.style.display = "block");
+// Input fields for latitude and longitude
+const latInput = document.getElementById("lat");
+const lngInput = document.getElementById("lng");
+
+// Close modal when "X" is clicked
 closeModal.onclick = () => (modal.style.display = "none");
+
+// Submit the form
 form.onsubmit = (e) => {
     e.preventDefault();
     const name = document.getElementById("name").value;
-    const lat = parseFloat(document.getElementById("lat").value);
-    const lng = parseFloat(document.getElementById("lng").value);
+    const lat = parseFloat(latInput.value);
+    const lng = parseFloat(lngInput.value);
     const info = document.getElementById("info").value;
 
     const newLocation = { name, lat, lng, info };
@@ -49,3 +54,11 @@ form.onsubmit = (e) => {
         })
         .catch((err) => window.location.reload());
 };
+
+// Add event listener for map clicks
+map.on("click", function (e) {
+    const { lat, lng } = e.latlng; // Get latitude and longitude from the click event
+    latInput.value = lat.toFixed(6); // Populate latitude field
+    lngInput.value = lng.toFixed(6); // Populate longitude field
+    modal.style.display = "block"; // Open the modal automatically
+});

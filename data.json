@@ -46,5 +46,11 @@
     "lat": 32,
     "lng": 32,
     "info": "David Test"
+  },
+  {
+    "name": "Turda Test",
+    "lat": 46.568428,
+    "lng": 23.785658,
+    "info": "David Test"
   }
 ]
