@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Bucharest",
+    "lat": 44.4268,
+    "lng": 26.1025,
+    "info": "Headquarters"
+  },
+  {
+    "name": "Cluj-Napoca",
+    "lat": 46.7712,
+    "lng": 23.6236,
+    "info": "Development Hub"
+  },
+  {
+    "name": "Iași",
+    "lat": 47.1585,
+    "lng": 27.6014,
+    "info": "Customer Support Center"
+  },
+  {
+    "name": "Timișoara",
+    "lat": 45.7489,
+    "lng": 21.2087,
+    "info": "Research Lab"
+  },
+  {
+    "name": "Bucharest 2",
+    "lat": 44.4268,
+    "lng": 26.1025,
+    "info": "Headquarters"
+  },
+  {
+    "name": "Test",
+    "lat": 42,
+    "lng": 42,
+    "info": "David Test"
+  },
+  {
+    "name": "Load Test",
+    "lat": 33,
+    "lng": 33,
+    "info": "David Test"
+  },
+  {
+    "name": "Load Test 2",
+    "lat": 32,
+    "lng": 32,
+    "info": "David Test"
+  }
+]
